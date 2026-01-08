@@ -8,8 +8,14 @@
 """
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# -----------------------------
+# CORS 설정 (모든 출처 허용)
+# -----------------------------
+CORS(app)
 
 @app.route("/posts", methods=["POST"])
 def create_post():
@@ -33,7 +39,7 @@ def create_post():
 
 @app.route("/hello", methods=["GET"])
 def hello():
-    return "hello", 200
+    return "너부리야~", 200
 
 if __name__ == "__main__":
     app.run(debug=True)
